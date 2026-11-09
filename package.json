@@ -1,0 +1,20 @@
+{
+  "name": "hilton-coddycamp",
+  "version": "1.0.0",
+  "description": "HILTON coddycamp — 5★ hotel booking site (Express + SQLite + NeDB + Telegram)",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=22.13"
+  },
+  "dependencies": {
+    "@seald-io/nedb": "^4.0.4",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "serverless-http": "^4.0.0"
+  }
+}

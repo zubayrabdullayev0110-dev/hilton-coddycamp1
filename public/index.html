@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HILTON coddycamp — 5★ Hotel</title>
+  <meta name="description" content="HILTON coddycamp — 5 yulduzli mehmonxona. haqiqiy xona suratlari, bepul nonushta, tushlik va kechki ovqat, basseyn, sauna, futbol maydoni." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <script type="importmap">
+    { "imports": {
+      "three": "/vendor/three/three.module.js",
+      "three/addons/": "/vendor/three/addons/"
+    } }
+  </script>
+</head>
+<body>
+  <!-- Loader -->
+  <div id="loader">
+    <div class="loader-logo">HILTON <span>coddycamp</span></div>
+    <div class="loader-stars"><i>★</i><i>★</i><i>★</i><i>★</i><i>★</i></div>
+    <div class="loader-bar"><span></span></div>
+  </div>
+
+  <!-- Header -->
+  <header id="header">
+    <a href="#top" class="logo">
+      <span class="logo-mark">H</span>
+      <span class="logo-text">HILTON <em>coddycamp</em><small>★★★★★</small></span>
+    </a>
+    <nav id="nav">
+      <a href="#rooms" data-i18n="nav.rooms"></a>
+      <a href="#presidential" data-i18n="nav.presidential"></a>
+      <a href="#dining" data-i18n="nav.dining"></a>
+      <a href="#amenities" data-i18n="nav.amenities"></a>
+      <a href="#reviews" data-i18n="nav.reviews"></a>
+      <a href="#mybooking" data-i18n="nav.mybooking"></a>
+      <a href="#contact" data-i18n="nav.contact"></a>
+    </nav>
+    <div class="header-right">
+      <a href="#rooms" class="btn btn-gold btn-sm hide-sm" data-i18n="nav.book"></a>
+      <div class="lang-switch" id="langSwitch">
+        <button data-lang="uz">UZ</button>
+        <button data-lang="ru">RU</button>
+        <button data-lang="en">EN</button>
+        <span class="lang-pill"></span>
+      </div>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <!-- HERO: haqiqiy rasmlardan "video" -->
+  <section id="top" class="hero">
+    <div id="heroCanvas"></div>
+    <video id="heroVideo" class="hero-video" muted loop playsinline hidden></video>
+    <div class="hero-shade"></div>
+    <div class="hero-content">
+      <div class="kicker reveal"><span class="stars">★★★★★</span> <span data-i18n="hero.kicker"></span></div>
+      <h1 class="reveal"><span class="shine" data-i18n="hero.title"></span></h1>
+      <p class="reveal" data-i18n="hero.sub"></p>
+      <div class="hero-room reveal">
+        <small data-i18n="hero.now"></small>
+        <strong id="heroRoomName">—</strong>
+        <span class="hero-price"><b id="heroRoomPrice">$0</b> <span data-i18n="hero.from"></span></span>
+      </div>
+      <div class="hero-actions reveal">
+        <button class="btn btn-gold btn-lg" id="heroBook"><span data-i18n="hero.book"></span> →</button>
+        <button class="btn btn-ghost btn-lg" id="heroTour">⟲ <span data-i18n="hero.tour"></span></button>
+      </div>
+    </div>
+    <div class="hero-thumbs" id="heroThumbs"></div>
+    <a href="#search" class="scroll-down"><span data-i18n="hero.scroll"></span><i></i></a>
+  </section>
+
+  <!-- Search bar -->
+  <section id="search" class="search-wrap">
+    <form class="search glass reveal" id="searchForm">
+      <label><span data-i18n="search.in"></span><input type="date" id="sIn" required /></label>
+      <label><span data-i18n="search.out"></span><input type="date" id="sOut" required /></label>
+      <label><span data-i18n="search.guests"></span>
+        <select id="sGuests"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select>
+      </label>
+      <button class="btn btn-gold" type="submit" data-i18n="search.btn"></button>
+    </form>
+  </section>
+
+  <!-- Rooms -->
+  <section id="rooms" class="section">
+    <div class="section-head reveal">
+      <div class="kicker" data-i18n="rooms.kicker"></div>
+      <h2 data-i18n="rooms.title"></h2>
+      <p class="meals-banner">🍳 🍲 🍽 <span data-i18n="rooms.sub"></span></p>
+    </div>
+    <div class="rooms-grid" id="roomsGrid"></div>
+  </section>
+
+  <!-- Presidential -->
+  <section id="presidential" class="section pres">
+    <div class="pres-media reveal">
+      <div id="presCanvas"></div>
+      <div class="pres-badge">👑 30F · 310 m²</div>
+    </div>
+    <div class="pres-info reveal">
+      <div class="kicker" data-i18n="pres.kicker"></div>
+      <h2 class="shine" data-i18n="pres.title"></h2>
+      <p data-i18n="pres.text"></p>
+      <ul class="pres-list">
+        <li>🤵 <span data-i18n="pres.f1"></span></li>
+        <li>👨‍🍳 <span data-i18n="pres.f2"></span></li>
+        <li>🚘 <span data-i18n="pres.f3"></span></li>
+        <li>🛁 <span data-i18n="pres.f4"></span></li>
+        <li>🛋️ <span data-i18n="pres.f5"></span></li>
+      </ul>
+      <div class="pres-price"><b id="presPrice">$2,450</b> <span data-i18n="room.night"></span></div>
+      <div class="hero-actions">
+        <button class="btn btn-gold btn-lg" data-book="presidential"><span data-i18n="room.book"></span> →</button>
+        <button class="btn btn-ghost btn-lg" data-tour="presidential">⟲ <span data-i18n="room.tour"></span></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dining -->
+  <section id="dining" class="section">
+    <div class="section-head reveal">
+      <div class="kicker" data-i18n="dining.kicker"></div>
+      <h2 data-i18n="dining.title"></h2>
+      <p data-i18n="dining.sub"></p>
+    </div>
+    <div class="dining-grid">
+      <article class="meal glass reveal">
+        <div class="meal-icon">🥐</div><span class="free-tag" data-i18n="dining.free"></span>
+        <h3 data-i18n="dining.breakfast"></h3><time>07:00 – 10:30</time><p data-i18n="dining.b.text"></p>
+      </article>
+      <article class="meal glass reveal">
+        <div class="meal-icon">🍛</div><span class="free-tag" data-i18n="dining.free"></span>
+        <h3 data-i18n="dining.lunch"></h3><time>12:30 – 15:00</time><p data-i18n="dining.l.text"></p>
+      </article>
+      <article class="meal glass reveal">
+        <div class="meal-icon">🥂</div><span class="free-tag" data-i18n="dining.free"></span>
+        <h3 data-i18n="dining.dinner"></h3><time>18:30 – 22:30</time><p data-i18n="dining.d.text"></p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Amenities -->
+  <section id="amenities" class="section">
+    <div class="section-head reveal">
+      <div class="kicker" data-i18n="am.kicker"></div>
+      <h2 data-i18n="am.title"></h2>
+    </div>
+    <div class="amen-grid" id="amenGrid">
+      <article class="amen reveal" data-amen="pool" data-hours="07:00 – 23:00">
+        <div class="amen-art art-pool"><div class="water"></div><div class="water w2"></div></div>
+        <h3 data-i18n="am.pool"></h3><p data-i18n="am.pool.t"></p><button class="link-btn" data-i18n="am.more"></button>
+      </article>
+      <article class="amen reveal" data-amen="sauna" data-hours="09:00 – 23:00">
+        <div class="amen-art art-sauna"><i></i><i></i><i></i></div>
+        <h3 data-i18n="am.sauna"></h3><p data-i18n="am.sauna.t"></p><button class="link-btn" data-i18n="am.more"></button>
+      </article>
+      <article class="amen reveal" data-amen="football" data-hours="08:00 – 22:00">
+        <div class="amen-art art-football"><div class="pitch"><span class="ball">⚽</span></div></div>
+        <h3 data-i18n="am.football"></h3><p data-i18n="am.football.t"></p><button class="link-btn" data-i18n="am.more"></button>
+      </article>
+      <article class="amen reveal" data-amen="spa" data-hours="10:00 – 21:00">
+        <div class="amen-art art-spa">🪷</div>
+        <h3 data-i18n="am.spa"></h3><p data-i18n="am.spa.t"></p><button class="link-btn" data-i18n="am.more"></button>
+      </article>
+      <article class="amen reveal" data-amen="gym" data-hours="24/7">
+        <div class="amen-art art-gym">🏋️</div>
+        <h3 data-i18n="am.gym"></h3><p data-i18n="am.gym.t"></p><button class="link-btn" data-i18n="am.more"></button>
+      </article>
+      <article class="amen reveal" data-amen="kids" data-hours="09:00 – 20:00">
+        <div class="amen-art art-kids">🎠</div>
+        <h3 data-i18n="am.kids"></h3><p data-i18n="am.kids.t"></p><button class="link-btn" data-i18n="am.more"></button>
+      </article>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="stats reveal">
+    <div><b data-count="500">0</b><span data-i18n="stats.rooms"></span></div>
+    <div><b data-count="1900000">0</b><span data-i18n="stats.guests"></span></div>
+    <div><b data-count="5">0</b><span data-i18n="stats.stars"></span></div>
+    <div><b data-count="25">0</b><span data-i18n="stats.years"></span></div>
+  </section>
+
+  <!-- Reviews (NoSQL) -->
+  <section id="reviews" class="section">
+    <div class="section-head reveal">
+      <div class="kicker" data-i18n="rev.kicker"></div>
+      <h2 data-i18n="rev.title"></h2>
+    </div>
+    <div class="reviews" id="reviewsList"></div>
+    <form class="review-form glass reveal" id="reviewForm">
+      <input name="name" required maxlength="40" data-i18n-ph="rev.name" />
+      <div class="rating" id="ratingStars">
+        <button type="button" data-v="1">★</button><button type="button" data-v="2">★</button><button type="button" data-v="3">★</button><button type="button" data-v="4">★</button><button type="button" data-v="5">★</button>
+      </div>
+      <textarea name="text" required maxlength="500" rows="2" data-i18n-ph="rev.text"></textarea>
+      <button class="btn btn-gold" type="submit" data-i18n="rev.send"></button>
+    </form>
+  </section>
+
+  <!-- My booking (SQL) -->
+  <section id="mybooking" class="section">
+    <div class="section-head reveal">
+      <div class="kicker" data-i18n="my.kicker"></div>
+      <h2 data-i18n="my.title"></h2>
+    </div>
+    <form class="lookup glass reveal" id="lookupForm">
+      <input id="lookupCode" required data-i18n-ph="my.code" autocomplete="off" />
+      <button class="btn btn-gold" type="submit" data-i18n="my.find"></button>
+    </form>
+    <div id="lookupResult"></div>
+  </section>
+
+  <!-- Contact (NoSQL + Telegram) -->
+  <section id="contact" class="section contact">
+    <div class="contact-info reveal">
+      <div class="kicker" data-i18n="contact.kicker"></div>
+      <h2 data-i18n="contact.title"></h2>
+      <p>📍 <span data-i18n="contact.addr"></span></p>
+      <p>📞 <a href="tel:+998712000000" data-i18n="contact.phone"></a></p>
+      <p>✉️ <a href="mailto:stay@hilton-coddycamp.uz">stay@hilton-coddycamp.uz</a></p>
+      <div class="map-art"><span class="pin">📍</span></div>
+    </div>
+    <form class="contact-form glass reveal" id="contactForm">
+      <input name="name" required data-i18n-ph="contact.name" />
+      <input name="contact" required data-i18n-ph="contact.contact" />
+      <textarea name="message" required rows="4" data-i18n-ph="contact.msg"></textarea>
+      <button class="btn btn-gold" type="submit" data-i18n="contact.send"></button>
+    </form>
+  </section>
+
+  <footer class="footer">
+    <div class="logo"><span class="logo-mark">H</span><span class="logo-text">HILTON <em>coddycamp</em><small>★★★★★</small></span></div>
+    <form id="subForm" class="sub-form">
+      <label data-i18n="foot.news"></label>
+      <div><input type="email" required placeholder="email@example.com" /><button class="btn btn-gold btn-sm" data-i18n="foot.sub"></button></div>
+    </form>
+    <p class="copy">© 2026 HILTON coddycamp. <span data-i18n="foot.rights"></span></p>
+  </footer>
+
+  <!-- Booking modal -->
+  <div class="modal" id="bookModal" aria-hidden="true">
+    <div class="modal-box">
+      <button class="modal-x" data-close>×</button>
+      <div class="bk-head">
+        <img id="bkImg" alt="" />
+        <div><small data-i18n="bk.title"></small><h3 id="bkRoom"></h3><span class="free-chip">🍳🍲🍽 <span data-i18n="room.meals"></span></span></div>
+      </div>
+      <form id="bookForm" class="bk-form">
+        <label><span data-i18n="bk.in"></span><input type="date" name="checkIn" required /></label>
+        <label><span data-i18n="bk.out"></span><input type="date" name="checkOut" required /></label>
+        <label><span data-i18n="bk.adults"></span><input type="number" name="adults" min="1" max="6" value="2" required /></label>
+        <label><span data-i18n="bk.children"></span><input type="number" name="children" min="0" max="5" value="0" /></label>
+        <label class="full"><span data-i18n="bk.name"></span><input name="fullName" required maxlength="80" autocomplete="name" /></label>
+        <label><span data-i18n="bk.phone"></span><input name="phone" required placeholder="+998 90 123 45 67" autocomplete="tel" /></label>
+        <label><span data-i18n="bk.email"></span><input name="email" type="email" autocomplete="email" /></label>
+        <div class="bk-sum full">
+          <div><span id="bkNightsTxt">—</span><span id="bkSub">—</span></div>
+          <div><span data-i18n="bk.meals"></span><span class="ok" data-i18n="bk.free"></span></div>
+          <div class="avail-row"><span data-i18n="bk.avail"></span><span id="bkAvail">—</span></div>
+          <div class="total"><span data-i18n="bk.total"></span><b id="bkTotal">$0</b></div>
+        </div>
+        <p class="bk-err full" id="bkErr"></p>
+        <button class="btn btn-gold btn-lg full" type="submit" id="bkSubmit" data-i18n="bk.submit"></button>
+      </form>
+      <div class="bk-ok" id="bkOk" hidden>
+        <div class="ok-ring">✓</div>
+        <h3 data-i18n="bk.ok.title"></h3>
+        <div class="ok-code" id="okCode"></div>
+        <p data-i18n="bk.ok.text"></p>
+        <button class="btn btn-gold" data-close data-i18n="bk.ok.close"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Foto tour modal -->
+  <div class="modal" id="tourModal" aria-hidden="true">
+    <div class="modal-box tour-box">
+      <button class="modal-x" data-close>×</button>
+      <div class="tour-top">
+        <div><small data-i18n="tour.title"></small><h3 id="tourRoom"></h3></div>
+        <div class="tour-actions">
+          <button class="btn btn-ghost btn-sm" id="tourAuto">▶ <span data-i18n="tour.auto"></span></button>
+          <button class="btn btn-gold btn-sm" id="tourBook" data-i18n="room.book"></button>
+        </div>
+      </div>
+      <div class="tour-stage">
+        <div id="tourCanvas"></div>
+        <video id="tourVideo" class="tour-video" controls loop playsinline hidden></video>
+      </div>
+      <p class="tour-hint" data-i18n="tour.hint"></p>
+    </div>
+  </div>
+
+  <!-- Amenity modal -->
+  <div class="modal" id="amenModal" aria-hidden="true">
+    <div class="modal-box amen-box">
+      <button class="modal-x" data-close>×</button>
+      <div id="amenBody"></div>
+    </div>
+  </div>
+
+  <div id="toasts"></div>
+
+  <script type="module" src="/js/app.js"></script>
+</body>
+</html>
